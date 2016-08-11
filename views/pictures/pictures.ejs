@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<div class="jumbotron">
+    <div class="container">
+        <% if (searchQuery === "") {%>
+            <h1>Showcasing all pictures</h1>
+        <% } else { %>
+            <h1>Showcase for <%=searchQuery%></h1>
+        <% } %>
+        <a class="btn btn-primary btn-large" href="/pictures/new">Add new</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row campgrounds">
+        <% pictures.forEach(function(picture){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <a  href="pictures/<%=picture._id%>"><img src="<%=picture.image%>"></img></a>
+                    <div class="caption">
+                    <p><%=picture.name%></p>
+                    <a class="btn btn-primary" href="pictures/<%=picture._id%>">More info</a>
+                </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

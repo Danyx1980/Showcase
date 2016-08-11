@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+    <div class="jumbotron landing-jumbotron">
+        <div class="container landing-container">
+            <form class="searchForm center-block" method="get" action="/pictures">
+                <select class="form-control filter" name="filter">
+                    <option>Name</option>
+                    <option>Author</option>
+                    <option>Tag</option>
+                    <option>All</option>
+                </select>
+                <input class="searchInput" type="text" name="searchQuery" placeholder="Type something to search for!" autofocus></input>
+                <a class="btn btn-lg btn-default seeAll" href="/pictures">See all</a>
+            </form>
+        </div>
+    </div>
+    
+<% include ../partials/footer %>

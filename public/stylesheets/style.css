@@ -1,0 +1,100 @@
+.campgrounds{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form{
+    width: 100%;
+    margin: 20px auto;
+}
+
+.showButtons{
+    display: inline;
+}
+
+.userButtons{
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+.form{
+    width: 30%;
+    margin: 25px auto;
+}
+
+.thumbnail{
+    padding: 0;
+    width: 100%;
+}
+
+.show-content{
+    margin: auto 0;
+}
+
+.searchInput{
+    height: 46px;
+    width: 70%;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 0;
+    border: white;
+}
+
+.btn-login{
+    width: 174px;
+}
+
+.filter{
+    width: 14%;
+    display: inline-block;
+    border: white;
+}
+
+.seeAll{
+    height: 46px;
+    width: 15%;
+    margin: 0;
+    border: white;
+}
+
+.searchBar{
+    margin: 0;    
+    height: 46px;
+    border: white;
+    background: white;
+}
+
+.searchForm{
+    margin: auto;
+    width: 70%;
+    margin-bottom: 50vh;
+    margin-top: 50vh;
+    background: white;
+}
+
+.landing-jumbotron{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.landing-container{
+    display: flex;
+}
+
+body{
+    margin: 0;
+}
+
+.navbar{
+    margin-bottom: 0;
+}
+
+input[type=radio],
+input[type=text],
+input[type=file]{
+    display: inline-block;
+    vertical-align: middle;
+}

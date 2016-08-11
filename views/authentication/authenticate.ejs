@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="form">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="<%=login%>"<a data-toggle="tab" href="#login">Log in</a></li>
+                <li class="<%=register%>"><a data-toggle="tab" href="#register">Register</a></li>
+            </ul>
+    
+            <div class="tab-content">
+                <div id="login" class="tab-pane fade in <%=login%>">
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input id="loginUsername" class="form-control" type="text" name="username" placeholder="Username" autofocus required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input id="loginPassword" class="form-control" type="password" name="password" placeholder="Password" required></input>
+                        </div>
+                        <button class="btn btn-md btn-primary btn-login">Submit</button>
+                    </form>
+                </div>
+                <div id="register" class="tab-pane fade in <%=register%>">
+                    <form method="post" action="/register">
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input id="registerUsername" class="form-control" type="text" name="username" placeholder="Username" autofocus required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input id="registerPassword" class="form-control" type="password" name="password" placeholder="Password" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerName">First name</label>
+                            <input id="registerName" class="form-control" type="text" name="name" placeholder="Name" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerLastName">Last name</label>
+                            <input id="registerLastName" class="form-control" type="text" name="lastName" placeholder="Last name" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input id="registerEmail" class="form-control" type="text" name="email" placeholder="Email" required></input>
+                        </div>
+                        <button class="btn btn-md btn-primary btn-login">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
