@@ -62,8 +62,9 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             if(err){
                 console.log(err);
             } else {
-                if(files.image.type.substring(0, files.image.type.indexOf("/")) === "image"){
-                    fs.rename(files.image.path, __dirname.substr(0, __dirname.indexOf("/routes")) + "/public/images/" + files.image.path.substring(files.image.path.indexOf("upload")), function(){
+                //if(files.image.type.substring(0, files.image.type.indexOf("/")) === "image"){
+                    //fs.rename(files.image.path, __dirname.substr(0, __dirname.indexOf("/routes")) + "/public/images/" + files.image.path.substring(files.image.path.indexOf("upload")), function(){
+                        
                         var sentCamp = {
                         name: fields.name,
                         description: fields.description,
@@ -82,10 +83,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                               res.redirect("/pictures");
                             }
                         }); 
-                    });
-                } else {
-                    res.redirect("pictures/new");
-                }
+                    //});
+                // } else {
+                //     res.redirect("pictures/new");
+                // }
             }
         });
     }
