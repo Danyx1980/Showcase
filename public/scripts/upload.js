@@ -20,6 +20,8 @@ function getSignedRequest(file){
                 uploadFile(file, response.signedRequest, response.url);
             }
             else{
+                console.log(xhr.status);
+                console.log(xhr.readyState);
                 alert("could not get signed URL.");
             }
         }
