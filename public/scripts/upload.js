@@ -16,6 +16,7 @@ function getSignedRequest(file){
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4){
             if(xhr.status === 200){
+                console.log(xhr.responseText);
                 const response = JSON.parse(xhr.responseText);
                 uploadFile(file, response.signedRequest, response.url);
             }
@@ -37,6 +38,9 @@ function uploadFile(file, signedRequest, url){
             if(xhr.status === 2000){
                 document.getElementById("fileLink").value = url;
                 console.log("File uploaded to " + url);
+            } else {
+                console.log(xhr.status);
+                console.log(url);
             }
         }
         else {
