@@ -35,7 +35,7 @@ function uploadFile(file, signedRequest, url){
     xhr.open("PUT", signedRequest);
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4){
-            if(xhr.status === 2000){
+            if(xhr.status === 200){
                 document.getElementById("fileLink").value = url;
                 console.log("File uploaded to " + url);
             } else {

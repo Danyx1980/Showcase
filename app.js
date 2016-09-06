@@ -8,7 +8,7 @@ var express = require("express"),
     indexRoutes = require("./routes/index"),
     commentRoutes = require("./routes/comments"),
     picRoutes = require("./routes/pictures"),
-    uploadRoutes = require("./routes/upload")
+    uploadRoutes = require("./routes/upload"),
     methodOverride = require("method-override"),
     formidable = require("formidable");
     
