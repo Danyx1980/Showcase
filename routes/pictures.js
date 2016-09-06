@@ -67,7 +67,8 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                         var sentCamp = {
                         name: fields.name,
                         description: fields.description,
-                        image: "/images/" + files.image.path.substring(files.image.path.indexOf("upload"))
+                        //image: "/images/" + files.image.path.substring(files.image.path.indexOf("upload"))
+                        image: fields.fileLink
                         };
                         console.log(sentCamp.image);
                         console.log(files.image.path);
