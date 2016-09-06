@@ -10,21 +10,21 @@
             </ul>
             <div class="tab-content">
                 <div id="upload" class="tab-pane fade">
-                    <form action="/pictures" method="post" enctype="multipart/form-data">
+                    <form action="/pictures" method="post">
                         <div class="form-group">
                             <label for="name">Give a name to your picture</label>
-                            <input class="form-control" id="name" type="text" name="name" placeholder="Name" autofocus required>
+                            <input class="form-control" id="name" type="text" name="campground[name]" placeholder="Name" autofocus required>
                         </div>
                         <div class="form-group">
                             <label for="upload">Upload the picture</label>
                             <input class="form-control" id="fileUpload" type="file" name="image" value="Upload file" accept="image/*" required></input>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="fileLink" type="text" name="link" disabled></input>
+                            <input class="form-control" id="fileLink" type="text" name="campground[image]" disabled hidden></input>
                         </div>
                         <div class="form-group">
                             <label for="description">Add a description to your picture</label>
-                            <input class="form-control" id="description" type="text" name="description" placeholder="Description">
+                            <input class="form-control" id="description" type="text" name="campground[description]" placeholder="Description">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-lg btn-primary btn-block">Submit!</button>
@@ -54,6 +54,4 @@
         </div>
     </div>
 </div>
-
-<scripts src="/scripts/upload.js"></scripts>
 <% include ../partials/footer %>

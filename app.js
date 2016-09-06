@@ -46,8 +46,6 @@ app.use(function(req, res, next){
     next();
 });
 
-const S3_BUCKET = process.env.S3_BUCKET;
-
 app.use(indexRoutes);
 app.use("/pictures/:id/comments", commentRoutes);
 app.use("/pictures", picRoutes);
