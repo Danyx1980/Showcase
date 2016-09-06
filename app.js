@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-mongo.connect("mongodb://localhost/yelp_camp");
-//mongo.connect(process.env.DATABASEURL);
+//mongo.connect("mongodb://localhost/yelp_camp");
+mongo.connect(process.env.DATABASEURL);
 // seedDB();
 
 app.use(require("express-session")({
