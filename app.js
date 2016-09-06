@@ -10,7 +10,8 @@ var express = require("express"),
     picRoutes = require("./routes/pictures"),
     uploadRoutes = require("./routes/upload"),
     methodOverride = require("method-override"),
-    formidable = require("formidable");
+    formidable = require("formidable"),
+    aws = require("aws-sdk");
     
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,6 +27,11 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+aws.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_KEY_ACCESS
+});
 
 app.use(passport.initialize());
 app.use(passport.session());

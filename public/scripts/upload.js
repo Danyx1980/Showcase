@@ -34,14 +34,9 @@ function uploadFile(file, signedRequest, url){
     const xhr = new XMLHttpRequest();
     xhr.open("PUT", signedRequest);
     xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4){
-            if(xhr.status === 200){
-                document.getElementById("fileLink").value = url;
-                console.log("File uploaded to " + url);
-            } else {
-                console.log(xhr.status);
-                console.log(url);
-            }
+        if(xhr.readyState === 4 && xhr.status === 200){
+            document.getElementById("fileLink").value = url;
+            console.log("File uploaded to " + url);
         }
         else {
             console.log("Couldn't upload file");

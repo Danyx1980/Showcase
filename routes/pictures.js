@@ -56,43 +56,6 @@ router.post("/", middleware.isLoggedIn, function(req, res){
           }
         });
     }
-    // } else {
-    //     var form = new formidable.IncomingForm();
-    //     form.keepExtensions = true;
-    //     form.parse(req, function(err, fields, files) {
-    //         if(err){
-    //             console.log(err);
-    //         } else {
-                
-    //             console.log(fields);
-    //             //if(files.image.type.substring(0, files.image.type.indexOf("/")) === "image"){
-    //                 //fs.rename(files.image.path, __dirname.substr(0, __dirname.indexOf("/routes")) + "/public/images/" + files.image.path.substring(files.image.path.indexOf("upload")), function(){
-                        
-    //                     var sentCamp = {
-    //                     name: fields.name,
-    //                     description: fields.description,
-    //                     //image: "/images/" + files.image.path.substring(files.image.path.indexOf("upload"))
-    //                     image: fields.fileLink
-    //                     };
-    //                     console.log(sentCamp.image);
-    //                     console.log(files.image.path);
-    //                     Campground.create(sentCamp, function(err, newCamp){
-    //                         if (err) {
-    //                             console.log(err);
-    //                         } else {
-    //                           newCamp.author.id = req.user._id;
-    //                           newCamp.author.username = req.user.username;
-    //                           newCamp.save();
-    //                           res.redirect("/pictures");
-    //                         }
-    //                     }); 
-    //                 //});
-    //             // } else {
-    //             //     res.redirect("pictures/new");
-    //             // }
-    //         }
-    //     });
-    // }
 });
 
 router.get("/new", middleware.isLoggedIn, function(req, res){
