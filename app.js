@@ -8,9 +8,8 @@ var express = require("express"),
     indexRoutes = require("./routes/index"),
     commentRoutes = require("./routes/comments"),
     picRoutes = require("./routes/pictures"),
-    uploadRoutes = require("./routes/upload"),
+    awsRoutes = require("./routes/awsInterface"),
     methodOverride = require("method-override"),
-    formidable = require("formidable"),
     aws = require("aws-sdk");
     
 
@@ -57,7 +56,7 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use("/pictures/:id/comments", commentRoutes);
 app.use("/pictures", picRoutes);
-app.use(uploadRoutes);
+app.use(awsRoutes);
 
 // app.get("*", function(req, res){
 //   res.redirect("/pictures");

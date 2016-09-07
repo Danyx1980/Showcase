@@ -2,11 +2,17 @@ var express = require("express");
 var router = express.Router();
 var Campground = require("../models/picture");
 var middleware = require("../middleware");
-var formidable = require("formidable");
 var fs = require("fs");
-var aws = require("aws-sdk");
+var aws = require("aws-sdk"); 
 
 const S3_BUCKET = process.env.S3_BUCKET;
+
+aws.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_KEY_ACCESS
+});
+
+var s3 = new aws.S3();
 
 router.get("/", function(req, res){
     if(req.query.searchQuery){
@@ -44,7 +50,6 @@ router.get("/", function(req, res){
 
 router.post("/", middleware.isLoggedIn, function(req, res){
     if(req.body.campground){
-        console.log(req.body);
         Campground.create(req.body.campground, function(err, newCamp){
           if (err) {
               console.log(err);
@@ -102,11 +107,25 @@ router.delete("/:id", middleware.checkCampOwnership, function(req, res){
       if(err) {
           console.log(err);
       } else {
-          fs.unlink( __dirname.substr(0, __dirname.indexOf("/routes")) + "/public" + campground.image, function(err){
-             if(err){
-                 console.log(err);
-             }
-          });
+              fs.unlink( __dirname.substr(0, __dirname.indexOf("/routes")) + "/public" + campground.image, function(err){
+                 if(err){
+                    var fileName = campground.image.substr(campground.image.indexOf(".com/") + 5);
+                    var params = {
+                        Bucket: S3_BUCKET,
+                        Key: fileName
+                    };
+                    console.log("deleting");
+                    s3.deleteObject(params, function(err, data){
+                    if(data) {
+                        console.log("deleted");
+                        console.log(data);
+                    } else if (err){
+                        console.log("error");
+                        console.log(err);
+                    }
+                    });
+                 }
+              });
           res.redirect("/pictures");
       }
     });
