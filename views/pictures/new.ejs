@@ -13,18 +13,18 @@
                     <form action="/pictures" method="post">
                         <div class="form-group">
                             <label for="name">Give a name to your picture</label>
-                            <input class="form-control" id="name" type="text" name="campground[name]" placeholder="Name" autofocus required>
+                            <input class="form-control" id="name" type="text" name="campground[name]" autofocus required>
                         </div>
                         <div class="form-group">
                             <label for="upload">Upload the picture</label>
                             <input class="form-control" id="fileUpload" type="file" name="image" value="Upload file" accept="image/*" required></input>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="fileLink" type="text" name="campground[image]" hidden required></input>
+                            <input class="form-control" id="fileLink" type="hidden" name="campground[image]" required></input>
                         </div>
                         <div class="form-group">
                             <label for="description">Add a description to your picture</label>
-                            <input class="form-control" id="description" type="text" name="campground[description]" placeholder="Description">
+                            <textarea class="form-control description" id="description" name="campground[description]"></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-lg btn-primary btn-block">Submit!</button>
@@ -35,15 +35,15 @@
                     <form action="/pictures" method="post">
                         <div class="form-group">
                             <label for="name">Give a name to your picture</label>
-                            <input class="form-control" id="name" type="text" name="campground[name]" placeholder="Name" autofocus required>
+                            <input class="form-control" id="name" type="text" name="campground[name]" autofocus required>
                         </div>
                         <div class="form-group">
                             <label for="link">Paste a direct link to your image</label>
-                            <input class="form-control" id="fileLink" type="text" name="campground[image]" placeholder="Image URL" required></input>
+                            <input class="form-control" id="fileLink" type="text" name="campground[image]" required></input>
                         </div>
                         <div class="form-group">
                             <label for="description">Add a description to your picture</label>
-                            <input class="form-control" id="description" type="text" name="campground[description]" placeholder="Description">
+                            <textarea class="form-control description" id="description" name="campground[description]" ></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-lg btn-primary btn-block">Submit!</button>

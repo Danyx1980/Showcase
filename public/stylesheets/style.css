@@ -17,9 +17,20 @@ form{
     margin-bottom: 5px;
 }
 
+.description{
+    height: 150px;
+    resize: both;
+}
+
 .form{
-    width: 30%;
+    width: 320px;
     margin: 25px auto;
+}
+
+.loginTab{
+    width: 45%;
+    display: inline;
+    float: left;
 }
 
 .thumbnail{
