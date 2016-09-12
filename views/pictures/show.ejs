@@ -18,12 +18,28 @@
                 
                 <div class="caption">
                     <em><p>Submitted by: <%=campground.author.username%></p></em>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser.role === "admin") { %>
-                        <a class="btn btn-md btn-warning userButtons" href="/pictures/<%=campground.id%>/edit">Edit</a>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.role === "admin") { %>
+                        <!--<a class="btn btn-md btn-warning userButtons" href="/pictures/<%=campground.id%>/edit">Edit</a>-->
+                        <button class="btn btn-md btn-warning userButtons" id="editPictureToggle">Edit</button>
                         <form action="/pictures/<%=campground.id%>?_method=DELETE" method="post" class="showButtons">
                             <button class="btn btn-md btn-danger userButtons">Delete</button>
                         </form>
                         <button class="btn btn-info btn-md userButtons" id="toggleComment">Comment</button>
+                        <form action="/pictures/<%= campground._id %>?_method=PUT" method="post" id="editPictureForm">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="campground[name]" value="<%=campground.name%>" placeholder="Name" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="campground[image]" value="<%=campground.image%>" placeholder="Image url">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="campground[description]"><%=campground.description%></textarea>
+                                <!--<input class="form-control" type="text" name="campground[description]" value="<%=campground.description%>" placeholder="Description">-->
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                            </div>
+                        </form>
                     <% } %>
                     <p><%=campground.description%></p>
                 </div>
@@ -43,11 +59,21 @@
                     <span><strong><%= comment.author.username %></strong></span>
                     <p><%= comment.body %></p>
                     <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
-                        <a class="btn btn-md btn-warning" href="/pictures/<%=campground.id%>/comments/<%=comment.id%>/edit">Edit</a>
+                        <!--<a class="btn btn-md btn-warning" href="/pictures/<%=campground.id%>/comments/<%=comment.id%>/edit">Edit</a>-->
+                        <button class="btn btn-md btn-warning toggleEditComment">Edit</button>
                         <form method="post" action="/pictures/<%=campground.id%>/comments/<%=comment.id%>?_method=DELETE" class="showButtons">
                             <button class="btn btn-md btn-danger">Delete</button>
+                        </form>
+                        <form action="/pictures/<%=campground.id%>/comments/<%=comment.id%>?_method=PUT" method="post" class="editCommentForm">
+                            <div class="form-group">
+                                <textarea class="form-control" name="comment[body]"><%=comment.body%></textarea>
+                                <!--<input class="form-control" type="text" name="comment[body]" value="<%=comment.body%>" placeholder="Comment">-->
+                            </div
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                            </div>
+                        </form>
                     <% } %>
-                    </form>
                 <% }) %>
             </div>
         </div>
