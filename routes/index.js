@@ -7,7 +7,6 @@ var middleware = require("../middleware");
 router.get("/", function(req, res){
     //res.render("index/index");
     res.redirect("/pictures");
-    //res.redirect("/campgrounds");
 });
 
 router.get("/register", middleware.isNotLoggedIn, function(req, res){

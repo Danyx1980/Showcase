@@ -18,24 +18,33 @@
                 
                 <div class="caption">
                     <em><p>Submitted by: <%=campground.author.username%></p></em>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser.role === "admin") { %>
                         <a class="btn btn-md btn-warning userButtons" href="/pictures/<%=campground.id%>/edit">Edit</a>
                         <form action="/pictures/<%=campground.id%>?_method=DELETE" method="post" class="showButtons">
                             <button class="btn btn-md btn-danger userButtons">Delete</button>
                         </form>
+                        <button class="btn btn-info btn-md userButtons" id="toggleComment">Comment</button>
                     <% } %>
                     <p><%=campground.description%></p>
                 </div>
             </div>
             <div class="well">
-                <a href="/pictures/<%=campground._id%>/comments/new" class="btn btn-default btn-md pull-right">Add new comment</a>
+                <!--<a href="/pictures/<%=campground._id%>/comments/new" class="btn btn-default btn-md pull-right">Add new comment</a>-->
                 <hr>
+                <form action="/pictures/<%=campground._id%>/comments" method="post" id="addCommentForm">
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment[body]" placeholder="comment" autofocus></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </div>
+                </form>
                 <% campground.comments.forEach(function(comment){ %>
                     <span><strong><%= comment.author.username %></strong></span>
                     <p><%= comment.body %></p>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
                         <a class="btn btn-md btn-warning" href="/pictures/<%=campground.id%>/comments/<%=comment.id%>/edit">Edit</a>
-                        <form method="post" action="/pictures/<%=campground.id%>/comments/<%=comment.id%>?_method=DELETE">
+                        <form method="post" action="/pictures/<%=campground.id%>/comments/<%=comment.id%>?_method=DELETE" class="showButtons">
                             <button class="btn btn-md btn-danger">Delete</button>
                     <% } %>
                     </form>
@@ -45,4 +54,5 @@
     </div>    
 </div>
 
+<script src="/scripts/form.js"></script>
 <% include ../partials/footer %>

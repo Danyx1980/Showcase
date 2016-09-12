@@ -12,6 +12,10 @@ form{
     display: inline;
 }
 
+.tab-content{
+    width: 100%;
+}
+
 .userButtons{
     height: 32px;
     margin-bottom: 5px;
@@ -28,14 +32,18 @@ form{
 }
 
 .loginTab{
-    width: 45%;
-    display: inline;
-    float: left;
+    width: 49%;
+    text-align: center;
 }
 
 .thumbnail{
     padding: 0;
     width: 100%;
+}
+
+.allImages{
+    max-height: 250px; 
+    overflow: hidden;
 }
 
 .show-content{

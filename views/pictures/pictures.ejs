@@ -16,7 +16,9 @@
         <% pictures.forEach(function(picture){ %>
             <div class="col-md-3 col-xs-12">
                 <div class="thumbnail">
-                    <a  href="pictures/<%=picture._id%>"><img src="<%=picture.image%>"></img></a>
+                    <div class="allImages">
+                        <a href="pictures/<%=picture._id%>"><img src="<%=picture.image%>"></img></a>
+                    </div>
                     <div class="caption">
                     <p><%=picture.name%></p>
                     <a class="btn btn-primary" href="pictures/<%=picture._id%>">More info</a>
