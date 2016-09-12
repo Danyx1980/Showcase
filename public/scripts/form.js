@@ -6,9 +6,9 @@ function InitializeCommentForm(){
 
    var addCommentButton = document.querySelector("#toggleComment");
    
+   var form = document.getElementById("addCommentForm");
+   form.style.display = "none";
    if(addCommentButton){
-      var form = document.getElementById("addCommentForm");
-      form.style.display = "none";
       addCommentButton.addEventListener("click", function(){
          if(form.style.display === "none"){
              form.style.display = "block";
