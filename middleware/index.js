@@ -21,6 +21,9 @@ middleware.isNotLoggedIn =function(req, res, next){
 }
 
 middleware.checkCampOwnership = function(req, res, next){
+    if(req.user.role === "admin"){
+        return next();
+    }
     if(req.isAuthenticated()){
         Campground.findById(req.params.id, function(err, campground){
             if(err){
@@ -30,7 +33,7 @@ middleware.checkCampOwnership = function(req, res, next){
                    return next();
                 } else {
                     console.log("back"); 
-                    res.redirect("/campgrounds");
+                    res.redirect("/pictures");
                 }
             }
         });
@@ -40,6 +43,9 @@ middleware.checkCampOwnership = function(req, res, next){
 }
 
 middleware.checkCommentOwnership = function(req, res, next){
+    if(req.user.role === "admin"){
+        return next();
+    }
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id, function(err, comment){
            if(err) {
