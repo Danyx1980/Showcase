@@ -19,20 +19,21 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/pictures">ShowCase</a>
                 </div>
-                
-                <form class="navbar-form navbar-left header-navbar hidden-sm hidden-xs" role="search" action="/pictures" method="get">
-                    <div class="form-group">
-                        <select class="form-control filter" name="filter">
-                            <option>Name</option>
-                            <option>Author</option>
-                            <option>Tag</option>
-                            <option>All</option>
-                        </select>
-                      <input type="text" class="form-control" name="searchQuery" placeholder="Search">
-                    </div>
-                </form>
         
                 <div class="collapse navbar-collapse" id="myNavbar">
+                    
+                    <form class="navbar-form navbar-left header-navbar" role="search" action="/pictures" method="get">
+                        <div class="form-group">
+                            <select class="form-control filter" name="filter">
+                                <option>Name</option>
+                                <option>Author</option>
+                                <option>Tag</option>
+                                <option>All</option>
+                            </select>
+                          <input type="text" class="form-control" name="searchQuery" placeholder="Search">
+                        </div>
+                    </form>
+                
                     <ul class="nav navbar-nav navbar-right">
                         <% if(!currentUser) {%>
                         <li><a href="/login">Login</a></li>
