@@ -44,7 +44,7 @@ form{
 .allImages{
     max-height: 250px; 
     overflow: hidden;
-}
+}<li><a data-target="#" href="#landing" class="navbar-brand">DC</a></li>
 
 .show-content{
     margin: auto 0;
@@ -96,7 +96,7 @@ form{
 .landing-jumbotron{
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100vh;<li><a data-target="#" href="#landing" class="navbar-brand">DC</a></li>
 }
 
 .landing-container{
